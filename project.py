@@ -46,6 +46,9 @@ class Ball:
 		else:
 			self.coords[0] += self.speed
 
+	def draw(self, window):
+		pygame.draw.circle(window, self.color, (self.coords, self.size))
+
   	def check_boundaries(self, screen_size):
 		for i in [0, 1]:
 			if (self.coords[i] < 0):
@@ -63,5 +66,27 @@ class Ball:
 		self.coords = list(self.initial_coords)
 
 
+WINDOW_SIZE = [200, 200]
+PADDLE_SIZE = [5, 20]
+BALL_SIZE = 5
 
+paddle1 = Paddles(
+	pygame.Color('white'),
+	[0, 0],
+	PADDLE_SIZE,
+	5
+)
 
+player2 = Paddles(
+	pygame.Color('magenta'),
+	[200, 200],
+	PADDLE_SIZE,
+	5
+)
+
+ball = Ball(
+	pygame.Color('red'),
+	[100, 100],
+	BALL_SIZE
+	5
+)
