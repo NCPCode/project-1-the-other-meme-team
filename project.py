@@ -114,10 +114,6 @@ while True:
 	paddle1.check_boundaries(WINDOW_SIZE)
 	paddle2.check_boundaries(WINDOW_SIZE)
 
-	if player1.has_collided(player2):
-		player1.reset()
-		player2.reset()
-
 	window.fill(pygame.Color('black'))
 
 	paddle1.draw(window)
