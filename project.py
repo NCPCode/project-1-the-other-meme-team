@@ -90,3 +90,22 @@ ball = Ball(
 	BALL_SIZE
 	5
 )
+
+window = pygame.display.set_mode(WINDOW_SIZE)
+clock = pygame.time.Clock()
+
+while True:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      exit()
+
+  keys = pygame.key.get_pressed()
+	if keys[pygame.K_UP]:
+		player1.move('up')
+	elif keys[pygame.K_DOWN]:
+		player1.move('down')
+
+	if keys[pygame.K_w]:
+		player2.move('up')
+	elif keys[pygame.K_s]:
+		player2.move('down')
