@@ -9,10 +9,10 @@ class Paddles:
 		self.speed = speed
 
 	def move(self, direction):
-		 if direction == 'up':
-		 	self.coords[1] -= self.speed
-		 elif direction == 'down':
-		 	self.coords[1] += self.speed
+		if direction == 'up':
+			self.coords[1] -= self.speed
+		elif direction == 'down':
+			self.coords[1] += self.speed
 	
 	def draw(self, window):
 		pygame.draw.rect(window, self.color, (self.coords, self.size))
@@ -37,10 +37,10 @@ class Ball:
 		self.speed = speed
 
 	def move(self, direction):
-    	if direction == 'up':
+		if direction == 'up':
 			self.coords[1] -= self.speed
 		elif direction == 'down':
-      		self.coords[1] += self.speed
+			self.coords[1] += self.speed
 		elif direction == 'left':
 			self.coords[0] -= self.speed
 		else:
@@ -49,7 +49,7 @@ class Ball:
 	def draw(self, window):
 		pygame.draw.circle(window, self.color, (self.coords, self.size))
 
-  	def check_boundaries(self, screen_size):
+	def check_boundaries(self, screen_size):
 		for i in [0, 1]:
 			if (self.coords[i] < 0):
 				self.coords[i] = 0
@@ -109,3 +109,5 @@ while True:
 		player2.move('up')
 	elif keys[pygame.K_s]:
 		player2.move('down')
+
+  
