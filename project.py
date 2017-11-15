@@ -102,14 +102,14 @@ while True:
 	keys = pygame.key.get_pressed()
 	
 	if keys[pygame.K_UP]:
-		paddle1.move('up')
+		paddle2.move('up')
 	elif keys[pygame.K_DOWN]:
-		paddle1.move('down')
+		paddle2.move('down')
 
 	if keys[pygame.K_w]:
-		paddle2.move('up')
+		paddle1.move('up')
 	elif keys[pygame.K_s]:
-		paddle2.move('down')
+		paddle1.move('down')
 
 	paddle1.check_boundaries(WINDOW_SIZE)
 	paddle2.check_boundaries(WINDOW_SIZE)
