@@ -77,7 +77,7 @@ paddle1 = Paddles(
 	5
 )
 
-player2 = Paddles(
+paddle2 = Paddles(
 	pygame.Color('magenta'),
 	[200, 200],
 	PADDLE_SIZE,
@@ -87,7 +87,7 @@ player2 = Paddles(
 ball = Ball(
 	pygame.Color('red'),
 	[100, 100],
-	BALL_SIZE
+	BALL_SIZE,
 	5
 )
 
@@ -95,19 +95,33 @@ window = pygame.display.set_mode(WINDOW_SIZE)
 clock = pygame.time.Clock()
 
 while True:
-  for event in pygame.event.get():
-    if event.type == pygame.QUIT:
-      exit()
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			exit()
 
-  keys = pygame.key.get_pressed()
+	keys = pygame.key.get_pressed()
+	
 	if keys[pygame.K_UP]:
-		player1.move('up')
+		paddle1.move('up')
 	elif keys[pygame.K_DOWN]:
-		player1.move('down')
+		paddle1.move('down')
 
 	if keys[pygame.K_w]:
-		player2.move('up')
+		paddle2.move('up')
 	elif keys[pygame.K_s]:
-		player2.move('down')
+		paddle2.move('down')
 
-  
+	paddle1.check_boundaries(WINDOW_SIZE)
+	paddle2.check_boundaries(WINDOW_SIZE)
+
+	if player1.has_collided(player2):
+		player1.reset()
+		player2.reset()
+
+	window.fill(pygame.Color('black'))
+
+	paddle1.draw(window)
+	paddle2.draw(window)
+
+	pygame.display.update()
+	clock.tick(60)
